@@ -26,7 +26,8 @@
     "orbit-db-keystore": "~0.1.0",
     "orbit-db-kvstore": "~1.4.0",
     "orbit-db-pubsub": "~0.5.5",
-    "orbit-db-store": "~2.5.3"
+    "orbit-db-store": "~2.5.3",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -61,6 +62,9 @@
     "build:dist": "webpack --config conf/webpack.config.js --sort-modules-by size && mkdir -p examples/browser/lib && cp dist/orbitdb.min.js examples/browser/lib/orbitdb.min.js",
     "build:debug": "webpack --config conf/webpack.debug.config.js --sort-modules-by size && mkdir -p examples/browser/lib && cp dist/orbitdb.js examples/browser/lib/orbitdb.js && cp dist/orbitdb.js.map examples/browser/lib/orbitdb.js.map",
     "build:docs/toc": "markdown-toc --no-first1 -i README.md && markdown-toc --no-first1 -i API.md && markdown-toc --no-first1 -i GUIDE.md && markdown-toc --no-first1 -i CHANGELOG.md",
-    "build:es5": "babel src --out-dir ./dist/es5/ --presets babel-preset-es2015 --plugins babel-plugin-transform-runtime"
-  }
+    "build:es5": "babel src --out-dir ./dist/es5/ --presets babel-preset-es2015 --plugins babel-plugin-transform-runtime",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
